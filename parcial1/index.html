@@ -1,0 +1,65 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Transformaciones Conjuntas</h1>
+        <p>Vector para la transformación => P1<input id=p1 size=8/>, P2<input id=p2 size=8/></p>
+        <p>Transformación Inicial <input id="height" size=8/></p>
+        <p>Transformacion Final <input id="vt" size=8/></p>
+        <p>Vector Resultado => p1 </p>
+        
+        <p><button id = "btn_tr" onclick = " ">Procesar</button></p>
+       
+        
+    </body>
+    <script>
+        function strArr2num(strarr)
+        {
+            arrs = strarr.split(',');     
+            arrn = [];   
+            arrs.forEach(elem =>  
+            {
+                arrn.push(Number(elem))
+            });
+
+            return arrn;
+        }
+        function sum (array1, array2)
+        {
+            return array1.map(function (num,idx){return num + array2[idx];})
+        }
+        
+        function mult
+        {
+            
+        }
+        function escaVector(vectorI, vectorT) 
+	    {
+            vecI = strArr2num(vectorI)
+            vecT = strArr2num(vectorT)
+
+
+
+	    }
+        
+       
+       
+       
+       function str2num(str)
+        {
+            Number(str)
+        }
+        
+        
+
+        
+
+        
+        
+
+
+    </script>
+
+
+</html>
