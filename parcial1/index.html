@@ -9,7 +9,7 @@
         <p>Transformacion Final <input id="t_ii" size=8/></p>
         <p>Vector Resultado => p1 <input id= "p11" size=8/>, P2 <input id= "p22" size=8/></p>
         
-        <p><button id = "btn_tr" onclick = "proceso2 (a, b, c, d)">Procesar</button></p>
+        <p><button id = "btn_tr" onclick = "proceso2(a, b, c, d)">Procesar</button></p>
        
         
     </body>
@@ -21,7 +21,7 @@
 
 
         function strArr2num(strarr)
-        {
+        {   
             arrs = strarr.split(',');     
             arrn = [];   
             arrs.forEach(elem =>  
@@ -31,6 +31,24 @@
 
             return arrn;
         }
+        function strArr2numT(strarr)
+        {   
+            arrt = strarr.split(' ');
+            arrt[0] = arrt [1]
+            arrt[1] = null
+
+
+
+            arrs = arrt.split(',');     
+            arrn = [];   
+            arrs.forEach(elem =>  
+            {
+                arrn.push(Number(elem))
+            });
+
+            return arrn;
+        }
+
 
         function sum (array1, array2)
         {
@@ -39,7 +57,7 @@
         function traslaVector(vectorI, vectorT) 
 	    {
             vecI = strArr2num(vectorI);
-            vecT = strArr2num(vectorT);
+            vecT = strArr2numT(vectorT);
 
             return sum(vecI, vecT);
 
@@ -63,58 +81,68 @@
 
 	    }
 
-        function proceso1 (vo, vt1)
+        function proceso1(vo, vt1)
         {
-            vecI = strArr2num(vt1);
+            vecI = vt1.split(' ');
             
             if (vecI[0] == 'T')
             {
                 a = traslaVector(vo,vt1);
             }
-            esle if (vecI[0] == 'E')
-            {
-                a = escaVector(vo,vt1);
-            }
-            esle if (vecI[0] == 'R')
-            {
-                a = rotaVector(vo,vt1);
-            }
             else
-                alert('Error');
-
+            {
+                if (vecI[0] == 'E')
+                {
+                    a = escaVector(vo,vt1);
+                }
+                else 
+                {
+                    if (vecI[0] == 'R')
+                    {
+                        a = rotaVector(vo,vt1);
+                    }
+                    else
+                    {
+                        alert('Error');
+                    }
+                }
+            }
 
         }
-        function proceso2 (vo1, vf1, vt1, vt2)
+        function proceso2(vo1, vf1, vt1, vt2)
         {
-            vecII = strArr2num(vt2);
-            vo = proceso1 (vo1, vt1)
-            vf = proceso1 (vf1, vt1)
+            vecII = vt2.split(' ');
+            vo = proceso1(vo1, vt1)
+            vf = proceso1(vf1, vt1)
 
             if (vecII[0] == 'T')
             {
                 a = traslaVector(vo,vt2);
                 b = traslaVector(vf,vt2);
             }
-            esle if (vecII[0] == 'E')
+            else 
             {
-                a = escaVector(vo,vt2);
-                b = escaVector(vf,vt2);
+                if (vecII[0] == 'E')
+                {
+                    a = escaVector(vo,vt2);
+                    b = escaVector(vf,vt2);
+                }
+                else 
+                {
+                    if (vecII[0] == 'R')
+                    {
+                        a = rotaVector(vo,vt2);
+                        b = rotaVector(vf,vt2);
+                    }
+                    else
+                    {
+                        alert('Error');
+                    }
+                }
             }
-            esle if (vecII[0] == 'R')
-            {
-                a = rotaVector(vo,vt2);
-                b = rotaVector(vf,vt2);
-            }
-            else
-            {
-                alert('Error');
-            }
-            
             document.getElementById("p11").value = a
             document.getElementById("p22").value = b
-
-
-            
+  
         }
         
         
