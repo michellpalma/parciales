@@ -4,16 +4,22 @@
     </head>
     <body>
         <h1>Transformaciones Conjuntas</h1>
-        <p>Vector para la transformación => P1<input id=p1 size=8/>, P2<input id=p2 size=8/></p>
-        <p>Transformación Inicial <input id="height" size=8/></p>
-        <p>Transformacion Final <input id="vt" size=8/></p>
-        <p>Vector Resultado => p1 </p>
+        <p>Vector para la transformación => P1<input id= "p1" size=8/>, P2<input id= "p2" size=8/></p>
+        <p>Transformación Inicial <input id="t_i" size=8/></p>
+        <p>Transformacion Final <input id="t_ii" size=8/></p>
+        <p>Vector Resultado => p1 <input id= "p11" size=8/>, P2 <input id= "p22" size=8/></p>
         
-        <p><button id = "btn_tr" onclick = " ">Procesar</button></p>
+        <p><button id = "btn_tr" onclick = "proceso2 (a, b, c, d)">Procesar</button></p>
        
         
     </body>
     <script>
+        a = document.getElementById("p1").value;
+        b = document.getElementById("p2").value;
+        c = document.getElementById("t_i").value;
+        d = document.getElementById("t_ii").value;
+
+
         function strArr2num(strarr)
         {
             arrs = strarr.split(',');     
@@ -25,39 +31,94 @@
 
             return arrn;
         }
+
         function sum (array1, array2)
         {
             return array1.map(function (num,idx){return num + array2[idx];})
         }
-        
-        function mult
-        {
-            
-        }
-        function escaVector(vectorI, vectorT) 
+        function traslaVector(vectorI, vectorT) 
 	    {
-            vecI = strArr2num(vectorI)
-            vecT = strArr2num(vectorT)
+            vecI = strArr2num(vectorI);
+            vecT = strArr2num(vectorT);
 
-
+            return sum(vecI, vecT);
 
 	    }
-        
-       
-       
-       
-       function str2num(str)
+
+        function escaVector(vectorI, vectorT) 
+	    {
+            vecI = strArr2num(vectorI);
+            vecT = strArr2num(vectorT);
+
+            return mult(vecI, vecT);
+
+	    }
+
+        function rotaVector(vectorI, vectorT) 
+	    {
+            vecI = strArr2num(vectorI);
+            vecT = strArr2num(vectorT);
+
+            return mult(vecI, vecT);
+
+	    }
+
+        function proceso1 (vo, vt1)
         {
-            Number(str)
+            vecI = strArr2num(vt1);
+            
+            if (vecI[0] == 'T')
+            {
+                a = traslaVector(vo,vt1);
+            }
+            esle if (vecI[0] == 'E')
+            {
+                a = escaVector(vo,vt1);
+            }
+            esle if (vecI[0] == 'R')
+            {
+                a = rotaVector(vo,vt1);
+            }
+            else
+                alert('Error');
+
+
+        }
+        function proceso2 (vo1, vf1, vt1, vt2)
+        {
+            vecII = strArr2num(vt2);
+            vo = proceso1 (vo1, vt1)
+            vf = proceso1 (vf1, vt1)
+
+            if (vecII[0] == 'T')
+            {
+                a = traslaVector(vo,vt2);
+                b = traslaVector(vf,vt2);
+            }
+            esle if (vecII[0] == 'E')
+            {
+                a = escaVector(vo,vt2);
+                b = escaVector(vf,vt2);
+            }
+            esle if (vecII[0] == 'R')
+            {
+                a = rotaVector(vo,vt2);
+                b = rotaVector(vf,vt2);
+            }
+            else
+            {
+                alert('Error');
+            }
+            
+            document.getElementById("p11").value = a
+            document.getElementById("p22").value = b
+
+
+            
         }
         
         
-
         
-
-        
-        
-
 
     </script>
 
