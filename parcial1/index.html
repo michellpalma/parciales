@@ -1,18 +1,17 @@
 <html>
     <head>
-
     </head>
     <body>
         <h1>Transformaciones Conjuntas</h1>
-        <p>Vector para la transformación => P1<input id= "p1" size=8/>, P2<input id= "p2" size=8/></p>
-        <p>Transformación Inicial <input id="t_i" size=8/></p>
-        <p>Transformacion Final <input id="t_ii" size=8/></p>
-        <p>Vector Resultado => p1 <input id= "p11" size=8/>, P2 <input id= "p22" size=8/></p>
+        <p>Vector para la transformación => p1<input id= "p1" size=8/>, p2<input id= "p2" size=8/></p>
+        <p>Transformación Inicial <input id="t_i" size=14/></p>
+        <p>Transformación Final <input id="t_ii" size=14/></p>
+        <p>Vector Resultado => p1 <input id= "p11" size=8/>, p2 <input id= "p22" size=8/></p>
         
         <p><button id = "btn_tr" onclick = "proceso2(a, b, c, d)">Procesar</button></p>
        
-        <p>Nota: Pra los espacios de Transformaciones, colocar la letra en mayuscula y separar con un espacio
-            de los numeros, por su parte separar los numeros con comas. (Ej: T 1,2,3)
+        <p>Nota: Para los espacios de Transformaciones, colocar la letra en mayuscula y separar con un espacio
+            de los numeros, por su parte, separar los numeros con comas. (Ej: T 1,2,3)
         </p>
 
     </body>
@@ -88,19 +87,19 @@
         {
             vecI = vt1.split(' ');
             
-            if (vecI[0] == 'T')
+            if (vecI[0] == "T")
             {
                 a = traslaVector(vo,vt1);
             }
             else
             {
-                if (vecI[0] == 'E')
+                if (vecI[0] == "E")
                 {
                     a = escaVector(vo,vt1);
                 }
                 else 
                 {
-                    if (vecI[0] == 'R')
+                    if (vecI[0] == "R")
                     {
                         a = rotaVector(vo,vt1);
                     }
@@ -118,21 +117,21 @@
             vo = proceso1(vo1, vt1)
             vf = proceso1(vf1, vt1)
 
-            if (vecII[0] == 'T')
+            if (vecII[0] == "T")
             {
                 a = traslaVector(vo,vt2);
                 b = traslaVector(vf,vt2);
             }
             else 
             {
-                if (vecII[0] == 'E')
+                if (vecII[0] == "E")
                 {
                     a = escaVector(vo,vt2);
                     b = escaVector(vf,vt2);
                 }
                 else 
                 {
-                    if (vecII[0] == 'R')
+                    if (vecII[0] == "R")
                     {
                         a = rotaVector(vo,vt2);
                         b = rotaVector(vf,vt2);
@@ -145,9 +144,7 @@
             }
             document.getElementById("p11").value = a;
             document.getElementById("p22").value = b;
-  
         }
-        
     </script>
 
 </html>
