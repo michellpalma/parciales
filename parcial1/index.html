@@ -11,16 +11,18 @@
         
         <p><button id = "btn_tr" onclick = "proceso2(a, b, c, d)">Procesar</button></p>
        
-        
+        <p>Nota: Pra los espacios de Transformaciones, colocar la letra en mayuscula y separar con un espacio
+            de los numeros, por su parte separar los numeros con comas. (Ej: T 1,2,3)
+        </p>
+
     </body>
     <script>
-        a = document.getElementById("p1").value;
+        a = document.getElementById("p1").value; //Valores para coloocar en el boton
         b = document.getElementById("p2").value;
         c = document.getElementById("t_i").value;
         d = document.getElementById("t_ii").value;
 
-
-        function strArr2num(strarr)
+        function strArr2num(strarr)  //Funcion que cambia strings a numeros
         {   
             arrs = strarr.split(',');     
             arrn = [];   
@@ -31,11 +33,11 @@
 
             return arrn;
         }
-        function strArr2numT(strarr)
+        function strArr2numT(strarr)  //Funcion que separa la letra por espacio y luego los numeros por coma
         {   
             arrt = strarr.split(' ');
-            arrt[0] = arrt [1]
-            arrt[1] = null
+            arrt[0] = arrt [1];
+            arrt[1] = null;
 
 
 
@@ -49,12 +51,11 @@
             return arrn;
         }
 
-
-        function sum (array1, array2)
+        function sum (array1, array2)  //Funcion de suma
         {
             return array1.map(function (num,idx){return num + array2[idx];})
         }
-        function traslaVector(vectorI, vectorT) 
+        function traslaVector(vectorI, vectorT) //Funcion de traslacion
 	    {
             vecI = strArr2num(vectorI);
             vecT = strArr2numT(vectorT);
@@ -63,25 +64,27 @@
 
 	    }
 
-        function escaVector(vectorI, vectorT) 
+        function mult (array1, array2)  //Funcion de multiplicacion
+        {
+            return array1.map(function (num,idx){return num * array2[idx];})
+        }
+        function escaVector(vectorI, vectorT) //Funcion de escalado
 	    {
             vecI = strArr2num(vectorI);
-            vecT = strArr2num(vectorT);
+            vecT = strArr2numT(vectorT);
 
             return mult(vecI, vecT);
 
 	    }
 
-        function rotaVector(vectorI, vectorT) 
+        function rotaVector(vectorI, vectorT) //Funcion de Rotacion
 	    {
             vecI = strArr2num(vectorI);
-            vecT = strArr2num(vectorT);
-
-            return mult(vecI, vecT);
+            vecT = strArr2numT(vectorT);
 
 	    }
 
-        function proceso1(vo, vt1)
+        function proceso1(vo, vt1) //Funcion que hace la primera transformacion
         {
             vecI = vt1.split(' ');
             
@@ -109,7 +112,7 @@
             }
 
         }
-        function proceso2(vo1, vf1, vt1, vt2)
+        function proceso2(vo1, vf1, vt1, vt2) //Funcion que hace la segunda transformacion con base en la primera transformacion
         {
             vecII = vt2.split(' ');
             vo = proceso1(vo1, vt1)
@@ -140,15 +143,11 @@
                     }
                 }
             }
-            document.getElementById("p11").value = a
-            document.getElementById("p22").value = b
+            document.getElementById("p11").value = a;
+            document.getElementById("p22").value = b;
   
         }
         
-        
-        
-
     </script>
-
 
 </html>
